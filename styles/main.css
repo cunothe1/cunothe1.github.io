@@ -1,0 +1,89 @@
+p.large{
+  font-family: verdana;
+  font-size: 13pt;
+  color: #313131;
+  }
+p.normal{
+  font-family: verdana;
+  font-size: 11pt;
+  color: #000000;
+  }
+p.small{
+  font-family: verdana;
+  font-size: 9pt;
+  color: #000000;
+  }
+
+/*===============BODY COLOR===============*/
+body {
+  background-color:#D7F0F0;
+}
+/*===============HTML5 LAYOUT===============*/
+header {
+  background-color:#D7F0F0;
+  text-align:center;
+  padding:5px; 
+  }
+nav {
+    background-color:#B8C6D6;
+    height:60px;
+    width:100%;
+    float:left;
+    left:0px;
+    border:3px solid #000000;
+    overflow:auto;
+    }
+nav.toc {
+    line-height:30px;
+    height:300px;
+    width:100px;
+    float:left;
+    padding:5px;	
+}
+a.navtoc{
+    display: block;
+    width: 60px;
+}
+  a.nav{
+    font-family:verdana;
+    font-size:20pt;
+    color:#000000;
+    padding:2px 20px;
+    border:1px solid #E28929;
+    float:left;
+    text-decoration:none;
+    }
+  a.nav:visited{
+    font-family:verdana;
+    font-size:20pt;
+    color:#000000;
+    padding:2px 20px;
+    border:1px solid #E28929;
+    float:left;
+    text-decoration:none;
+    }
+  a.nav:hover{
+    background-color:#DE7F18;
+    font-family:verdana;
+    font-size:20pt;
+    color:#000000;
+    padding:2px 20px;
+    border:1px solid #E28929;
+    float:left;
+    text-decoration:none;
+    }
+section {
+    background-color:#CFD8E4;
+    width:50%;
+    float:left;
+    padding:10px;
+    overflow:auto;
+    }
+section.left {
+    background-color:#B8C6D6;
+    width:30%;
+    float:left;
+    padding:3px;
+    overflow:auto;
+    margin-right:10px;
+    }
