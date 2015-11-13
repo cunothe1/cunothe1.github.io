@@ -5,7 +5,7 @@
  * [x] add text
    * [ ] iets over mijzelf
    * [ ] iets over de games die ik speel
-* [ ] reviews.html
- * [ ] links naar games
- * [ ] menubar
- * [ ] text
+* [x] reviews.html
+ * [x] links naar games
+ * [x] menubar
+ * [x] text
