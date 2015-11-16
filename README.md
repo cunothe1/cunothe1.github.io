@@ -1,4 +1,9 @@
 #15-11-04
+Happened
+ links veranderd
+ uncrowded
+ varius kleine updates
+#15-11-04
 * [ ] index.html
  * [x] Update de menubar
    * [x] add review tab
