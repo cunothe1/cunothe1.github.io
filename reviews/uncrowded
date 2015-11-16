@@ -19,14 +19,8 @@
 </header>
 <!--============================MenuBar===========================-->
 <ul>
-   <li class='active has-sub'><a href='index.html'>Home</a></li>
-   <li class='active has-sub'><a href='reviews.html'>Reviews</a></li>`
-   <li class='active has-sub'><a href='#'>Sites</a>
-      <ul>
-         <li class='has-sub'><a href='http://nasserievermeij.github.io'>Nasserie Vermeij Webdesign</a>
-         <li class='has-sub'><a href'http://cunothe1.github.io'>My Main Site</a></li>
-      </ul>
-   </li>
+   <li class='active has-sub'><a href='http://cunothe1.github.io/index.html'>Home</a></li>
+   <li class='active has-sub'><a href='http://cunothe1.github.io/reviews.html'>Reviews</a></li>
 </ul>
 </div>
 <!--============================Links================================-->
