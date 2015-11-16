@@ -1,0 +1,99 @@
+<html>
+<head>
+<title>Unturned</title>
+<!--===========================Favicon============================-->
+<link rel="shortcut icon" type="image/png" href="#"/>
+<!--===========================menubar============================-->
+   <meta charset='utf-8'>
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+   <script src="script/menubar.js"></script>
+<!--============================styles============================-->
+   <link rel="stylesheet" href="https://cunothe1.github.io/styles/main.css" type="text/css">
+   <link rel="stylesheet" href="https://cunothe1.github.io/styles/menubar.css" type="text/css">
+</head>
+<body>
+<div id='cssmenu'>
+<header>
+</header>
+<!--============================MenuBar===========================-->
+<ul>
+   <li class='active has-sub'><a href='index.html'>Home</a></li>
+   <li class='active has-sub'><a href='reviews.html'>Reviews</a></li>`
+   <li class='active has-sub'><a href='#'>Sites</a>
+      <ul>
+         <li class='has-sub'><a href='http://nasserievermeij.github.io'>Nasserie Vermeij Webdesign</a>
+         <li class='has-sub'><a href'http://cunothe1.github.io'>My Main Site</a></li>
+      </ul>
+   </li>
+</ul>
+</div>
+<!--============================Links================================-->
+<section class=left>
+  <h1>Uncrowded</h1>
+  <p class=large>
+Uncrowded, single player open-world zombie survival game.
+  </p>
+  <p class=normal>
+<b>€0,02 of €0,99</b> prijs<br>
+<b>Single&Multi</b> player<br>
+<b>redelijke</b> graphics<br>
+<b>zeer korte</b> verwachte speeltijd<br>
+Open world, survival, zombies
+  </p>
+</section>
+<!--=============================Tekst================================-->
+<section>
+<h2>de game</h2>
+<p class=normal>
+  Uncrowded gaat vooral om het doden van zombies, want het survival element werkt niet echt goed.
+  ook zijn de pistolen defect en heb je een neger zombie die je van mijlen ver ziet. Ook zijn er 
+  meerdere bugs die ervoor zorgen dat je de game gaat haten of leuk vinden. De hud is waardeloos
+  onderin heb je 5 blokjes met niks erin (een soort minecraft iedee), er wordt niet duidelijk 
+  gemaakt wat je ermee kan. De hunger, thirst en health bar zijn een beetje weggestopt en vallen
+  niet echt op. Ook is er iets mis met de zombie spawns, als je 1 zombie dood spawnt er weer 1
+  een paar meter verderop, zo lagen er 60 zombies rond een huisje. Het was waarschijnlijk bedoeld 
+  als een soort rippoff van Unturned, maar dat is niet echt gelukt
+</p>
+<h3>Het begin</h3>
+<p class=normal>
+  In het begin van de game ben je vooral bezig met rondderpen en een plaats te vinden om zombies te 
+  killen. Of je komt een neger zombie tegen en je bent dood. De game lijkt leuk en mooi, je ziet wat 
+  random huisjes en dat is het.
+</p>
+<h3>Mid game</h3>
+<p class=normal>
+  In het midden van de game ben je vooral bezig met zombies doden of proberen het serieus te spelen.
+  Je kan zombies killen met een bijl, maar pas op voor de sniper want die doet geen schade! Als jij
+  denkt stoer te zijn en het spel serieus te spelen door een basis te maken, veel plezier mij is het
+  niet gelukt.
+</p>
+<h3>Eind game</h3>
+<p class=normal>
+  Eerst zag je een auto, je ging erin en eruit. Toen was je dood<br>
+  Eerst loopte je rond, toen kwam er een flipping neger zombie van een kilometer ver op je af rennen. Toen was je dood<br>
+  Eerst was je op een hooibaal aan het klimmen. Toen was je dood<br>
+  Eerst was je op een dak aan het schuilen voor zombies, je kreeg honger. Toen was je dood<br>
+  Eerst was je zombies aan het doden, toen spawnde er 1 in your face. Toen was je dood<br>
+</p>
+<h1>Bugs</h1>
+<p class=normal>
+ Zombies spawnen zodra er 1 dood is, er zijn bij een huisje ongeveer 4 tot 5 spawnplaatsen.<br>
+ Zombies kunnen niet doodgeschoten worden.<br>
+ Je kan geen kisten op daken plaatsen.<br>
+ Zombies kunnen random struikelen en doodgaan.<br>
+ De hud.<br>
+ Als je het spel voor 2 cent koopt verdien je er iets van 6 cent mee.<br>
+ De ontzichtbare muur om de map<br>
+</p>
+<h2>+/-</h2>
+<p class=normal>
+Ik begin met de graphics, ze zijn op zich beter dan die van unturned. ik geef het gewoon een <b>5.5</b><br>
+De gameplay is grappig en verlept. Als je zoekt voor een survival game, zoek verder. Maar het spel
+is vooral leuk om zombies te doden. Een ander nut heeft het niet, er is maar 1 nuttige map. een <b>5</b><br>
+De gemiddelde score komt uit op <b>5.2</b>
+</p>
+</section>
+</body>
+</html>
