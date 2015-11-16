@@ -1,4 +1,6 @@
 * ==========15-11-04==========
+* [ ] reviews.html
+  * [ ] lijst van reviews
 * HAPPENED
  * links veranderd
  * uncrowded
