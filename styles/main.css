@@ -1,8 +1,7 @@
 /*================Linkies============*/
 a.game_block{font-family: verdana;font-size: 15pt;color: #011533;text-decoration: none;}
-a.menu{font-family: verdana;font-size: 10pt;color: #48D2E7;text-decoration: none;
-       background: #FFFFFF;padding: 10px;display: inline-block;
-       width: 100px;}
+a.menu {text-align: left;right: 25px;font-family: verdana;font-size: 10.5pt;color: #1598D5;text-decoration: none;background: #FFFFFF;width: 150px;height:30px ;}
+a.menu:hover{background-color:#F7FCFF;color:#1388BF;}
 /*==============header layout===============*/
 h1.large{font-family: verdana;font-size: 22pt;color: #46A1CB;}
 h1.normal{font-family: verdana;font-size: 18pt;color: #011533;}
