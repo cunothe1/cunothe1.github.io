@@ -1,5 +1,5 @@
 /*================Linkies============*/
-a.game_block{font-family: verdana;font-size: 15pt;color: #011533;}
+a.game_block{font-family: verdana;font-size: 15pt;color: #011533;text-decoration: none;}
 /*==============header layout===============*/
 h1.large{font-family: verdana;font-size: 22pt;color: #46A1CB;}
 h1.normal{font-family: verdana;font-size: 18pt;color: #011533;}
