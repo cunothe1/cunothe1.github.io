@@ -20,5 +20,5 @@ a.navtoc{ display: block;width: 60px;}
 a.nav{font-family:verdana;font-size:20pt;color:#000000;padding:2px 20px;border:1px solid #E28929;float:left;text-decoration:none;}
 a.nav:visited{font-family:verdana;font-size:20pt;color:#000000;padding:2px 20px;border:1px solid #E28929;float:left;text-decoration:none;}
 a.nav:hover{background-color:#DE7F18;font-family:verdana;font-size:20pt;color:#000000;padding:2px 20px;border:1px solid #E28929;float:left;text-decoration:none;}
-section {background-color:#CFD8E4;width:50%;float:left;padding:10px;overflow:auto;}
+section {background-color:#CFD8E4;width:400px;float:left;padding:10px;overflow:auto;}
 section.left {background-color:#B8C6D6;width:30%;float:left;padding:3px;overflow:auto;margin-right:10px;}
