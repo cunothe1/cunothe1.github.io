@@ -2,18 +2,18 @@
 
 ###gamemaker
 
-  [ ]upload ww2 game
+  *[ ]upload ww2 game
   
-  [ ]make&upload images of games
+  *[ ]make&upload images of games
   
-    [ ]ww2
+    *[ ]ww2
     
-    [ ]p
+    *[ ]p
     
-  [ ]make ww2 site
+  *[ ]make ww2 site
   
-  [ ]game maker site
+  *[ ]game maker site
   
-    [ ] ww2 section
+    *[ ] ww2 section
     
-    [ ] p section
+    *[ ] p section
