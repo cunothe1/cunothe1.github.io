@@ -1,0 +1,23 @@
+/*================Linkies============*/
+a.menu {text-align: left;right: 25px;font-family: verdana;font-size: 10.5pt;color: #1598D5;text-decoration: none;background: #FFFFFF;width: 150px;height:30px ;}
+a.menu:hover{background-color:#F7FCFF;color:#1388BF;}
+/*==============header layout===============*/
+h1.large{font-family: verdana;font-size: 22pt;color: #000000;}
+h1.normal{font-family: verdana;font-size: 18pt;color: #3DD45D;}
+h2.normal{font-family: verdana;font-size: 15pt;color: #3DD45D;}
+/*===============Text layout===============*/
+p.notelarge{font-family: verdana;font-size: 13pt;color: #6CA678;}
+p.notenormal{font-family: verdana;font-size: 11pt;color: #6CA678;}
+p.notesmall{font-family: verdana;font-size: 9pt;color: #6CA678;}
+/*===============BODY COLOR===============*/
+body {background-color:#D7F0F0;}
+/*===============HTML5 LAYOUT===============*/
+header {background-color:#D7F0F0;text-align:center;padding:5px; }
+nav {background-color:#B8C6D6;height:60px;width:100%;float:left;left:0px;border:3px solid #000000;overflow:auto;}
+nav.toc {line-height:30px;height:300px;width:100px;float:left;padding:5px;}
+a.navtoc{ display: block;width: 60px;}
+a.nav{font-family:verdana;font-size:20pt;color:#000000;padding:2px 20px;border:1px solid #E28929;float:left;text-decoration:none;}
+a.nav:visited{font-family:verdana;font-size:20pt;color:#000000;padding:2px 20px;border:1px solid #E28929;float:left;text-decoration:none;}
+a.nav:hover{background-color:#DE7F18;font-family:verdana;font-size:20pt;color:#000000;padding:2px 20px;border:1px solid #E28929;float:left;text-decoration:none;}
+section {background-color:#6C6C6C;width:50%;float:left;padding:10px;padding-left:15%;overflow:auto;}
+section.left {background-color:#6C6C6C;width:30%;float:left;padding:3px;overflow:auto;margin-right:10px;}
