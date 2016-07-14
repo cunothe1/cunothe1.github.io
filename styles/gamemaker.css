@@ -10,7 +10,11 @@ p.notelarge{font-family: verdana;font-size: 13pt;color: #6CA678;}
 p.notenormal{font-family: verdana;font-size: 11pt;color: #6CA678;}
 p.notesmall{font-family: verdana;font-size: 9pt;color: #6CA678;}
 /*===============BODY COLOR===============*/
-body {background-image: url("http://cdn.akamai.steamstatic.com/steam/apps/214850/ss_a7a8ed4541285790334e31d684f49d03910f8f26.600x338.jpg?t=1464716151");background-size:100%;}
+body {
+  background:
+    url("http://cdn.akamai.steamstatic.com/steam/apps/214850/ss_a7a8ed4541285790334e31d684f49d03910f8f26.600x338.jpg?t=1464716151") bottom center no-repeat,
+    #000000;
+}
 /*===============HTML5 LAYOUT===============*/
 header {background-color:#D7F0F0;text-align:center;padding:5px; }
 nav {background-color:#B8C6D6;height:60px;width:100%;float:left;left:0px;border:3px solid #000000;overflow:auto;}
