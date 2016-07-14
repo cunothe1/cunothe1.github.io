@@ -12,8 +12,9 @@ p.notesmall{font-family: verdana;font-size: 9pt;color: #6CA678;}
 /*===============BODY COLOR===============*/
 body {
   background:
-    url("http://cdn.akamai.steamstatic.com/steam/apps/214850/ss_a7a8ed4541285790334e31d684f49d03910f8f26.600x338.jpg?t=1464716151") bottom center no-repeat,
+    url("http://cdn.akamai.steamstatic.com/steam/apps/214850/ss_a7a8ed4541285790334e31d684f49d03910f8f26.600x338.jpg?t=1464716151") top center no-repeat,
     #000000;
+  background-size:100%;
 }
 /*===============HTML5 LAYOUT===============*/
 header {background-color:#D7F0F0;text-align:center;padding:5px; }
