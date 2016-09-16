@@ -11,6 +11,13 @@ p.large{font-family: verdana;font-size: 13pt;color: #313131;}
 p.normal{font-family: verdana;font-size: 11pt;color: #000000;}
 p.small{font-family: verdana;font-size: 9pt;color: #000000;}
 p.mini{font-family: verdana;font-size: 2pt;color: #000000;}
+/*==============Game Warlords===============*/
+table.game_warlords{}
+h2.game_warlords{}
+h1.game_warlords{}
+a.warlords{}
+
+
 /*===============BODY COLOR===============*/
 body {background-color:#D7F0F0;}
 /*===============HTML5 LAYOUT===============*/
