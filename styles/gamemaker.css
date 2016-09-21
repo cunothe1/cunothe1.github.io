@@ -17,7 +17,7 @@ body {
   background-size:100%;
 }
 /*===============HTML5 LAYOUT===============*/
-header {background-color:#D7F0F0;text-align:center;padding:5px; }
+header {background-color:#6CA678;text-align:center;padding:5px; }
 nav {background-color:#B8C6D6;height:60px;width:100%;float:left;left:0px;border:3px solid #000000;overflow:auto;}
 nav.toc {line-height:30px;height:300px;width:100px;float:left;padding:5px;}
 a.navtoc{ display: block;width: 60px;}
