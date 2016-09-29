@@ -24,8 +24,8 @@ section.left {width:30%;float:left;padding:3px;overflow:auto;margin-right:10px;}
 
 /*==================mobiel===============*/
 @media screen and (max-width: 500px){
-  section{width: 100%;}
-  section.left{width: 100%;}
+  section{width: calc(100% - 6px);}
+  section.left{width: calc(100% - 6px);}
 }
 
 /*================colors=====================*/
