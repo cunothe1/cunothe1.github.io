@@ -19,8 +19,8 @@ h1.game_warlords{}
 a.warlords{}
 
 /*==================LAYOUT==================*/
-section {background-color:#CFD8E4;width:65%;float:left;padding:3px;overflow:auto;}
-section.left {background-color:#B8C6D6;width:30%;float:left;padding:3px;overflow:auto;margin-right:10px;}
+section {width:65%;float:left;padding:3px;overflow:auto;}
+section.left {width:30%;float:left;padding:3px;overflow:auto;margin-right:10px;}
 
 /*================colors=====================*/
 h1.large{color: #46A1CB;}
