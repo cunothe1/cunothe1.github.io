@@ -11,7 +11,7 @@ p.large{font-family: verdana;font-size: 13pt;}
 p.normal{font-family: verdana;font-size: 11pt;}
 p.small{font-family: verdana;font-size: 9pt;}
 p.mini{font-family: verdana;font-size: 2pt;}
-
+a{text-decoration:none;}
 /*==============Game Warlords===============*/
 table.game_warlords{}
 h2.game_warlords{}
@@ -36,6 +36,7 @@ p.large{color: #313131;}
 p.normal{color: #000000;}
 p.small{color: #000000;}
 p.mini{color: #000000;}
+a{color: #000000;}
 section{background-color:#CFD8E4;}
 section.left {background-color:#B8C6D6;}
 body {background-color:#D7F0F0;}
