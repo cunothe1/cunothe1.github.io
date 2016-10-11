@@ -78,6 +78,9 @@
 #cssmenu > ul > li.active > a {
   color: #009ae1;
 }
+#cssmenu > ul > li.activeb > a {
+  color: #FFFFFF;
+}
 #cssmenu > ul > li.has-sub > a {
   padding-right: 25px;
 }
