@@ -1,0 +1,30 @@
+Sleutels
+  primaire sleutel
+      primary key
+      unieke sleutel
+      moet ingevuld worden
+  kanidaatsleutel
+      candidate key
+      kan/kunnen ook als primaire sleutel gebruikt worden
+  referentie sleutel
+      zorgt voor bruggen tussen tabellen
+      de primaire sleutel van het andere tabel bestaat altijd uit 2 kolommen
+  
+Waardes
+  verplicht
+      niet-leeg-regel
+      not-null-regel
+  van bepaalde soort
+      tekst
+      getallen
+      data
+      enzovoorts
+  speciefiek
+      je kan zelf bepalen
+      mogelijkheden verschillen erg
+
+stroken diagram
+  NL = not null
+  <--> = primaire sleutel
+  een pijl duid aan op een verwijzing(naar waar die vandaan kwam)
+  
