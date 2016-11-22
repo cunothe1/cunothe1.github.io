@@ -28,7 +28,7 @@ deacceleration = 0.3;
 
 //shooting
 shootrange = 75
-shootrof = 2/30
+shootrof = 30/2
 shootdmg = 10
 shootspeed = 20
 controlshoot = "none"
@@ -62,10 +62,6 @@ script_execute(scrip_input);
 if (cruisecontrol = 1){
 //targets
 target = instance_nearest(x,y,oOinterceptor)}
-//targetting
-if (cruisecontrol = 1){
-if instance_exists(target){
-if (point_distance(protx,proty,target.x,target.y)<range)controlmove="forward";}}
 //movement interceptor
 script_execute(scrip_movinginterceptor);
 
@@ -73,8 +69,8 @@ execute code:
 
 ///shooting
 if (controlshoot = "normal"){
-shootsequence -= 1/30
-if (shootsequence = 0){
+shootsequence -= 1;
+if (shootsequence < 0){
     shot = instance_create(x,y,oBemp);
     script_execute(scrip_shooting);
     controlshoot="none";
