@@ -1,0 +1,4 @@
+1.get cmd
+2.net user /add login lemmelogin
+3.with techs set as desktop image
+4.thats all
