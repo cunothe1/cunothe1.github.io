@@ -14,7 +14,7 @@ p.mini{font-family: verdana;font-size: 2pt;}
 a{text-decoration:none;}
 
 /*==================LAYOUT==================*/
-section {width:60%;float:right;margin-bottom:40px;padding:15px;overflow:auto;}
+section {width:60%;float:right;margin-bottom:40px;padding:15px;padding-right:10%;overflow:auto;}
 section.left {width:30%;height:100%;float:left;padding:10px;overflow:auto;margin-right:10px;}
 img.left {width:100%;}
 /*==================mobiel===============*/
