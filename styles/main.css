@@ -14,7 +14,7 @@ p.mini{font-family: verdana;font-size: 2pt;}
 a{text-decoration:none;}
 
 /*==================LAYOUT==================*/
-section {width:65%;float:left;padding:3px;overflow:auto;}
+section {width:65%;float:right;padding:3px;overflow:auto;}
 section.left {width:30%;float:left;padding:3px;overflow:auto;margin-right:10px;}
 
 /*==================mobiel===============*/
