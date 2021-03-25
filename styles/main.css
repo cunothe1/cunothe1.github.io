@@ -14,13 +14,13 @@ p.mini{font-family: verdana;font-size: 2pt;}
 a{text-decoration:none;}
 
 /*==================LAYOUT==================*/
-section {width:50%;float:right;margin-bottom:40px;padding:30px;padding-right:8%;overflow:auto;}
-section.left {width:30%;height:100%;float:left;padding:10px;overflow:auto;margin-right:10px;}
+section {width:47%;float:right;margin-bottom:40px;padding:4%;padding-right:8%;overflow:auto;}
+section.left {width:30%;float:left;padding:3%;overflow:auto;}
 img.left {width:100%;}
 /*==================mobiel===============*/
 @media screen and (max-width: 500px){
-  section{width: calc(100% - 6px);}
-  section.left{width: calc(100% - 6px);}
+  section{width: 95%;float:left;padding-right:4%}
+  section.left{width: 95%;margin-bottom:40px;}
 }
 
 /*================colors=====================*/
