@@ -97,6 +97,10 @@ ul{
   margin:0px;
 }
 
+img {
+  width:100%;
+}
+
 #top{
   background-color:var(--blue);
   background-image:url("images/background.jpg");
