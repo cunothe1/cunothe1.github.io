@@ -30,7 +30,6 @@
 
 @media screen and (max-width:1300px){
   :root{
-  --blue:red;
     --width:80%;
     --margin:5%;
   }
@@ -40,7 +39,6 @@
   screen and (max-width:700px), 
   screen and (orientation: portrait){
   :root{
-  --blue:green;
     --width:100%;
     --margin:5%;
   }
@@ -303,11 +301,6 @@ section{
 @media 
   screen and (max-width:700px), 
   screen and (orientation: portrait){
-  :root{
-  --blue:green;
-    --width:100%;
-    --margin:5%;
-  }
   .whitediv p{
     width:80%;
     float:none;
