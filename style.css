@@ -2,24 +2,174 @@
   --blue:#2e1da1;
   --light:#8bc5d0;
   --accent:#60acb9;
-  --white:#c1cdff;
+  --dark:#49828c;
+  --white:#e0e7ff;
+  --realwhite:#ffffff;
+  --black:#222222;
+  --text:#000000;
+  
   --font-family:'Open sans',sans-serif;
   --font-size:20px;
   --time: 1s;
+  
+  --width:65%;
+  --margin:8%;
+  
+  --size-h1:32px;
+  --size-h2:25px;
+  --size-h3:25px;
+  --size-ps:14px;
+  --size-p:16px;
+  --size-pl:18px;
 }
 
+@media only screen and (max-width:1300px){
+  :root{
+    --width:80%;
+    --margin:5%;
+  }
+}
+
+@media only screen and (max-width:600px){
+  :root{
+    --width:100%;
+    --margin:5%;
+  }
+}
+
+
 body{
+  font-family:var(--font-family);
   margin:0px;
   padding:0px;
+  color:var(--text);
+  background-color:var(--blue);
 }
+
+p, div.container{
+  color:var(--text);
+  margin:auto;
+  padding: 1em 5em;
+  max-width:1000px;
+}
+
+p.subtitle{
+  color:var(--dark);
+  font-size:var(--size-pl);
+}
+p.large{
+  
+}
+p.normal{
+  font-size:var(--size-p);
+}
+p.small{
+  
+}
+
+h1{
+  color:var(--blue);
+  font-size:var(--size-h1);
+  font-weight:bold;
+  font-style:italic;
+  
+  margin:0px;
+  border-left: 5px solid var(--white);
+  padding-left: 10px;
+}
+
+h2{
+  font-size:var(size-h2);
+  color:var(--dark);
+  text-align:center;
+  text-decoration:3px underline var(--accent);
+}
+
+h3{
+  margin: 0px;
+  font-size:var(size-h3);
+  color:var(--accent);
+  text-align:center;
+}
+
+
+ul{
+  margin:0px;
+}
+
 #top{
   background-color:var(--blue);
   background-image:url("D:/Chub/Cmedia/Edit/Gimpable/background.jpg");
   padding-top: 25%;
-  padding-bottom: 20%;
+  padding-bottom: 16%;
   width:100%;
   background-size: 100%;
   background-repeat: no-repeat;
+}
+
+section{
+  margin:auto;
+  padding-top:2em;
+  width:var(--width);
+  background-color:var(--white);
+}
+
+
+.blacksec, .blackdiv{
+  background-color:var(--black);
+  padding: 3em 0;
+  color:var(--white);
+  width:100%;
+}
+
+
+.blacksec h1{
+  margin: 0px var(--margin);
+  color:var(--light);
+  border-left:12px solid var(--white);
+  border-bottom:3px solid var(--white);
+}
+.blacksec p{
+  max-width:800px;
+  padding: 3em 5% 3em 5%;
+  color:var(--realwhite);
+  border-bottom: 2px dashed var(--light);
+}
+
+.whitediv{
+  background-color:var(--realwhite);
+  overflow: hidden;
+  margin: 2em 0;
+}
+.whitediv img{
+  width:20%;
+  float:left;
+}
+.whitediv p{
+  width:60%;
+  float:left;
+}
+
+.blackdiv{ /*inherrits from .blacksec*/
+  padding:0;
+  padding-top:0.5em;
+  overflow: hidden;
+}
+
+.blackdiv p{
+    color:var(--light);
+    float:left;
+    width: 40%;
+}
+
+.blackdiv video{
+  width:35%;
+  float:left;
+}
+
+#latest{
+  max-width:var(--width);
+  margin:auto;
 }
 
 /*================Menu============*/
