@@ -167,11 +167,6 @@ section{
   float:left;
 }
 
-#latest{
-  max-width:var(--width);
-  margin:auto;
-}
-
 /*================Menu============*/
 #cssmenu ul li,
 #cssmenu ul li a{
