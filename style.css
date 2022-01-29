@@ -9,7 +9,7 @@
   --text:#000000;
   
   --font-family:'Open sans',sans-serif;
-  --font-size:20px;
+  --font-size:30px;
   --time: 1s;
   
   --width:65%;
@@ -21,17 +21,26 @@
   --size-ps:14px;
   --size-p:16px;
   --size-pl:18px;
+  --perc-60:60%;
+  --perc-40:40%;
+  --perc-30:40%;
+  --perc-20:40%;
+}
 }
 
-@media only screen and (max-width:1300px){
+@media screen and (max-width:1300px){
   :root{
+  --blue:red;
     --width:80%;
     --margin:5%;
   }
 }
-
-@media only screen and (max-width:600px){
+  
+@media 
+  screen and (max-width:700px), 
+  screen and (orientation: portrait){
   :root{
+  --blue:green;
     --width:100%;
     --margin:5%;
   }
@@ -46,7 +55,8 @@ body{
   background-color:var(--blue);
 }
 
-p, div.container{
+p, p.normal, div.container{
+  font-size:var(--size-p);
   color:var(--text);
   margin:auto;
   padding: 1em 5em;
@@ -58,13 +68,10 @@ p.subtitle{
   font-size:var(--size-pl);
 }
 p.large{
-  
 }
 p.normal{
-  font-size:var(--size-p);
 }
 p.small{
-  
 }
 
 h1{
@@ -145,29 +152,32 @@ section{
   overflow: hidden;
   margin: 2em 0;
 }
+
 .whitediv img{
   width:20%;
   float:left;
 }
+
 .whitediv p{
   width:60%;
   float:left;
 }
-
+  
 .blackdiv{ /*inherrits from .blacksec*/
   padding:0;
-  padding-top:0.5em;
+  margin-top:1em;
+  padding-top:1em;
   overflow: hidden;
 }
 
 .blackdiv p{
-    color:var(--light);
-    float:left;
-    width: 40%;
+  color:var(--light);
+  float:left;
+  width:40%;
 }
 
 .blackdiv video{
-  width:35%;
+  width: 40%;
   float:left;
 }
 
@@ -286,4 +296,36 @@ section{
 #cssmenu ul ul li:hover > a,
 #cssmenu ul ul li a:hover {
   color: var(--light);font-weight: bold;
+}
+
+
+/*mobile*/
+@media 
+  screen and (max-width:700px), 
+  screen and (orientation: portrait){
+  :root{
+  --blue:green;
+    --width:100%;
+    --margin:5%;
+  }
+  .whitediv p{
+    width:80%;
+    float:none;
+  }
+  .whitediv div.img{
+    margin:auto;
+    width:33%;
+  }
+  .whitediv img{
+    width:100%;
+  }
+  .blackdiv p{
+    float:none;
+    width:80%;
+  }
+  
+  .blackdiv video{
+    width:100%;
+    float:none;
+  }
 }
