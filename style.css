@@ -338,10 +338,11 @@ section > div{
   font-weight: bold;
 }
 /*thee*/
-#thee #cssmenu ul li {/*top*/
+#thee #cssmenu > ul > li {/*top*/
   display:flexbox;
-  padding: 20px 40px 20px 40px;
-  font-size: var(--size-pl);
+  padding:10px 20px 10px 20px;
+  margin: 10px 20px 10px 20px;
+  font-size: var(--size-p);
   font-weight: bold;
   min-width:100px;
 }
@@ -378,7 +379,7 @@ section > div{
 }
 
 
-#thee #cssmenu > ul > li:hover{/*hover*/
+#thee #cssmenu > ul > li:visited, #thee #cssmenu > ul > li:hover, #thee #cssmenu > ul > li:active{/*hover*/
   margin-bottom:150px;
 }
 
@@ -394,7 +395,7 @@ section > div{
   height:100%;
 }
 
-#thee #cssmenu > ul > li:hover > ul:hover {
+#thee #cssmenu > ul > li > ul:hover {
   display:none;
 }
 
@@ -412,8 +413,16 @@ section > div{
 @media 
   screen and (max-width:700px), 
   screen and (orientation: portrait){
+  p, .left p, .right p{
+    padding:5%;
+    width:90%;
+  }
+  .left div{
+    margin:auto;
+    float:none;
+  }
   .whitediv p{
-    width:80%;
+    width:100%;
     float:none;
   }
   .whitediv div.img{
@@ -425,7 +434,6 @@ section > div{
   }
   .blackdiv p{
     float:none;
-    width:80%;
   }
   
   .blackdiv video{
