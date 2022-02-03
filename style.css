@@ -1,3 +1,22 @@
+/*
+blacksec
+  <h1>
+  <p>
+section
+theesec
+  <h1>
+  
+  
+  blackdiv
+    <p>
+  whitediv
+  
+  P:
+    subtitle
+    large
+    Normal
+    Small
+*/
 :root {
   --blue:#2e1da1;
   --light:#8bc5d0;
@@ -15,16 +34,13 @@
   --width:65%;
   --margin:8%;
   
+  --size-title:50px;
   --size-h1:32px;
   --size-h2:25px;
   --size-h3:25px;
   --size-ps:14px;
   --size-p:16px;
   --size-pl:18px;
-  --perc-60:60%;
-  --perc-40:40%;
-  --perc-30:40%;
-  --perc-20:40%;
 }
 }
 
@@ -57,7 +73,7 @@ p, p.normal, div.container{
   font-size:var(--size-p);
   color:var(--text);
   margin:auto;
-  padding: 1em 5em;
+  padding: 0.5em 5em;
   max-width:1000px;
 }
 
@@ -66,6 +82,7 @@ p.subtitle{
   font-size:var(--size-pl);
 }
 p.large{
+  font-size:var(--size-pl);
 }
 p.normal{
 }
@@ -118,13 +135,13 @@ img {
 
 section{
   margin:auto;
-  padding-top:2em;
   width:var(--width);
   background-color:var(--white);
+  padding:1em 0px;
 }
 
 
-.blacksec, .blackdiv{
+.blacksec{
   background-color:var(--black);
   padding: 3em 0;
   color:var(--white);
@@ -145,39 +162,61 @@ section{
   border-bottom: 2px dashed var(--light);
 }
 
-.whitediv{
-  background-color:var(--realwhite);
+section > div{
   overflow: hidden;
-  margin: 2em 0;
+  padding: 1em 0;
 }
 
-.whitediv img{
-  width:20%;
-  float:left;
-}
-
-.whitediv p{
+.left p{
   width:60%;
   float:left;
 }
-  
-.blackdiv{ /*inherrits from .blacksec*/
-  padding:0;
-  margin-top:1em;
-  padding-top:1em;
-  overflow: hidden;
-}
-
-.blackdiv p{
-  color:var(--light);
+.right p{
+  padding: 1em 3em;
   float:left;
   width:40%;
 }
-
-.blackdiv video{
-  width: 40%;
+.left div{
+  width:20%;
   float:left;
 }
+.right div{
+  width:35%;
+  float:left;
+}
+
+.whitediv{background-color:var(--realwhite)}
+.blackdiv{background-color:var(--black);}
+.lightdiv{background-color:var(--light)}
+.accentdiv{background-color:var(--accent)}
+.darkdiv{background-color:var(--dark);}
+.blackdiv p, .darkdiv p{color:var(--light)}
+
+.right video{
+  --temp:40%;
+  width:var(--temp);
+  height:var(--temp);
+  float:left;
+}
+
+.theesec{
+  width:100%;
+  background-color:var(--dark);
+  border-top:4px solid var(--light);
+  border-bottom:4px solid var(--light);
+  text-align: center;
+  padding: 0.5em 0;
+  color:var(--white);
+}
+
+.theesec h1{
+  margin:auto;
+  border:0px;
+  color:var(--light);
+  font-size:var(--size-title);
+  padding: 0px;
+}
+
 
 /*================Menu============*/
 #cssmenu ul li,
@@ -212,6 +251,8 @@ section{
 #cssmenu.align-center > ul {
   font-size: 0;
   text-align: center;
+  padding-left: 60px;
+  padding-right: 60px;
 }
 #cssmenu.align-center > ul > li {
   display: inline-block;
@@ -229,6 +270,7 @@ section{
   text-decoration: none;
   text-transform: uppercase;
 }
+
 /*top*/
 #cssmenu > ul > li.active > a {
   color: var(--light);
@@ -293,8 +335,77 @@ section{
 /*bottom hover*/
 #cssmenu ul ul li:hover > a,
 #cssmenu ul ul li a:hover {
-  color: var(--light);font-weight: bold;
+  font-weight: bold;
 }
+/*thee*/
+#thee #cssmenu ul li {/*top*/
+  display:flexbox;
+  padding: 20px 40px 20px 40px;
+  font-size: var(--size-p);
+  font-weight: bold;
+  min-width:100px;
+}
+
+.groen{color:chartreuse;}
+.zwart{color:grey;}
+.wit{color:white;}
+.fruit{color:red;}
+.aards{color:darkgoldenrod;}
+.fris{color:khaki;}
+.kruiden{color:brown;}
+.munt{color:mediumturquoise;}
+
+#thee #cssmenu ul li.premium{
+  text-decoration:1px underline var(--accent);
+}
+#thee #cssmenu ul li.fav{font-style:italic;}
+#thee #cssmenu ul li li.tekst,
+#thee #cssmenu ul li li.mening{
+  color:var(--accent);
+  font-style:normal;
+}
+#thee #cssmenu ul li li.bereiding{
+  color:lightskyblue;
+  font-style:normal;
+}
+#thee #cssmenu ul li li.locatie{
+  color:azure;
+  font-style:normal;
+}
+#thee #cssmenu ul li li.C{
+  color:lightcyan;
+  font-style:normal;
+}
+
+
+#thee #cssmenu > ul > li:hover{/*hover*/
+  margin-bottom:150px;
+}
+
+#thee #cssmenu > ul > li > ul{/*bottom*/
+  padding: 5px 10px 5px 0px;
+  font-size: var(--size-ps);
+}
+
+#thee #cssmenu > ul > li:hover > ul > li {
+  width:200px;
+  padding: 5px 10px 5px 0px;
+  display:block;
+  height:100%;
+}
+
+#thee #cssmenu > ul > li:hover > ul:hover {
+  display:none;
+}
+
+#thee div{
+  display:block;
+}
+
+#thee{
+  margin-bottom:300px;
+}
+
 
 
 /*mobile*/
