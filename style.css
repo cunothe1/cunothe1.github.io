@@ -341,7 +341,7 @@ section > div{
 #thee #cssmenu ul li {/*top*/
   display:flexbox;
   padding: 20px 40px 20px 40px;
-  font-size: var(--size-p);
+  font-size: var(--size-pl);
   font-weight: bold;
   min-width:100px;
 }
