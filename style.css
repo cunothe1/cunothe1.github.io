@@ -352,6 +352,7 @@ section > div{
   font-size: var(--size-p);
   font-weight: bold;
   min-width:100px;
+  transition: margin 1s;
 }
 
 .groen{color:chartreuse;}
@@ -385,9 +386,21 @@ section > div{
   font-style:normal;
 }
 
-
+/*#thee #cssmenu > ul > li{
+  margin-bottom:inherit;
+  transition: margin 1s;
+}*/
 #thee #cssmenu > ul > li:visited, #thee #cssmenu > ul > li:hover, #thee #cssmenu > ul > li:active{/*hover*/
   margin-bottom:150px;
+  transition: margin 700ms;
+}
+
+#thee #cssmenu > ul > li:hover > ul{
+  animation: fadeIn ease 1s;
+  -webkit-animation: fadeIn ease 1s;
+  -moz-animation: fadeIn ease 1s;
+  -o-animation: fadeIn ease 1s;
+  -ms-animation: fadeIn ease 1s;
 }
 
 #thee #cssmenu > ul > li > ul{/*bottom*/
@@ -402,9 +415,9 @@ section > div{
   height:100%;
 }
 
-#thee #cssmenu > ul > li > ul:hover {
+/*#thee #cssmenu > ul > li > ul:hover {
   display:none;
-}
+}*/
 
 #thee div{
   display:block;
@@ -448,3 +461,15 @@ section > div{
     float:none;
   }
 }
+
+@keyframes          fadeIn {0% {opacity:0;}100% {opacity:1;}}
+@-moz-keyframes     fadeIn {0% {opacity:0;}100% {opacity:1;}}
+@-webkit-keyframes  fadeIn {0% {opacity:0;}100% {opacity:1;}}
+@-o-keyframes       fadeIn {0% {opacity:0;}100% {opacity:1;}}
+@-ms-keyframes      fadeIn {0% {opacity:0;}100% {opacity:1;}}
+
+@keyframes          fadeOut {100% {opacity:0;}0% {opacity:1;}}
+@-moz-keyframes     fadeOut {100% {opacity:0;}0% {opacity:1;}}
+@-webkit-keyframes  fadeOut {100% {opacity:0;}0% {opacity:1;}}
+@-o-keyframes       fadeOut {100% {opacity:0;}0% {opacity:1;}}
+@-ms-keyframes      fadeOut {100% {opacity:0;}0% {opacity:1;}}
