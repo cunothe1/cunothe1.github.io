@@ -120,8 +120,9 @@ section.ponder{padding-bottom:3em;}
 section.wit{background-color:var(--caw);}
 section.licht{background-color:var(--cal);}
 section.donker{background-color:var(--cad);}
-section.zwart{background-color:var(--caz);}
-section.zwart h1{color:var(--ctl);}
+.zwart{background-color:var(--caz);}
+.zwart h1{color:var(--ctl);}
+.zwart p{color:var(--ctl);}
 
 section#top{
 	width:100%;
@@ -178,4 +179,35 @@ img{
 	/*vertical-align:middle;*/
 	object-fit:contain;
 	margin:auto;
+}
+
+.courses tr td{
+	vertical-align:top;
+	padding: 0% 2.5%;
+	width:50%;
+}
+
+.slideshow {
+  position: relative;
+  overflow: hidden;
+}
+
+.slideshow {
+  width: 100%;
+  height: 400px;
+  position: relative;
+}
+
+.slideshow img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+}
+
+.slideshow img:first-child {
+  opacity: 1;
 }
