@@ -29,7 +29,7 @@
 
 <style>
   /* Default mobile styles: assume mobile-first for portrait orientation */
-  .left-bar, .right-bar {
+  .linker-balk, .rechter-balk {
     box-sizing: border-box;
     width: 100%;
     display: block;
@@ -41,13 +41,13 @@
     padding: 5px 10px;     
     text-decoration: none;
   }
-  .article {
+  .SPJarticle {
     cursor: pointer;
     border: 1px solid #ccc;
     padding: 10px;
     margin-bottom: 5px;
   }
-  .content {
+  .SPJcontent {
     border: 1px solid #ddd;
     padding: 10px;
     margin-bottom: 20px;
@@ -55,20 +55,20 @@
   }
   /* Styles for landscape orientation */
   @media (orientation: landscape) {
-    .left-bar {
+    .linker-balk {
       width: 20%; /* Left bar takes 20% of the width in landscape */
       float: left;
     }
-    .right-bar {
+    .rechter-balk {
       width: 70%; /* Right bar takes 80% of the width in landscape */
       float: left;
     }
-    .left-bar, .right-bar {
+    .linker-balk, .rechter-balk {
       box-sizing: border-box;
     }
   }
 </style>
-<div class="left-bar">
+<div class="linker-balk">
   <div class="socials">
     <h2>SOCIALS</h2>
     <h3>Jongeren Amsterdam</h3>
@@ -92,12 +92,12 @@
   <a href="https://wordlid.sp.nl/?ref=spjongeren-lidworden-page" class="word-lid">WORD LID</a>
 </div>
 
-<div class="right-bar">
-    <div class="article" onclick="toggleContent('article2')">
+<div class="rechter-balk">
+    <div class="SPJarticle" onclick="toggleContent('SPJarticle2')">
         <h2>Algemene Leden Vergadering SP Jongeren Amsterdam</h2>
         <!-- <img src="https://jongeren.sp.nl/sites/default/files/styles/spruit_content_width/public/whatsapp_image_2024-03-14_at_23.23.53_2.jpeg" alt="Thumbnail"> -->
     </div>
-    <div id="article2" class="content">
+    <div id="SPJarticle2" class="content">
         <p><img src="https://jongeren.sp.nl/sites/default/files/styles/spruit_content_width/public/whatsapp_image_2024-03-14_at_23.23.53_2.jpeg" style="margin:auto; width:50%;"> &nbsp;</p>
         <h2 style="text-align:center">Algemene Leden Vergadering SP Jongeren Amsterdam</h2>
         <p><b>SPJongeren Amsterdam heeft een succesvolle Algemene Ledenvergadering (ALV) gehouden, gevolgd door een filmavond van de afdeling SP Amsterdam.</b></p>
@@ -119,11 +119,11 @@
     </div>
 
   
-  <div class="article" onclick="toggleContent('article1')">
+  <div class="SPJarticle" onclick="toggleContent('SPJarticle1')">
         <h2>Huisjes Melker van het Jaar</h2>
         <!-- <img src="https://amsterdam.sp.nl/sites/amsterdam.sp.nl/files/styles/afd_middenkolom/public/banner_website_1.png" alt="Thumbnail"> -->
     </div>
-    <div id="article1" class="content">
+    <div id="SPJarticle1" class="content">
         <p>&nbsp;<img src="https://amsterdam.sp.nl/sites/amsterdam.sp.nl/files/styles/afd_middenkolom/public/banner_website_1.png" style="margin:auto"></p>
         <h2 style="text-align:center">Huisjes Melker van het Jaar</h2>
         <p><b>De ‘Amsterdamse Huisjesmelker van het Jaar’ verkiezing is van start. we nodigen alle studenten en jong Amsterdammers uit om hun huisbaas te <a href="https://amsterdam.sp.nl/form/nominaties-huisjesmelker-2023">nomineren</a> voor deze oneervolle titel.</b></p>
