@@ -30,6 +30,7 @@
 <style>
   /* Default mobile styles: assume mobile-first for portrait orientation */
   .left-bar, .right-bar {
+    box-sizing: border-box;
     width: 100%;
     display: block;
   }
@@ -59,8 +60,11 @@
       float: left;
     }
     .right-bar {
-      width: 75%; /* Right bar takes 80% of the width in landscape */
+      width: 70%; /* Right bar takes 80% of the width in landscape */
       float: left;
+    }
+    .left-bar, .right-bar {
+      box-sizing: border-box;
     }
   }
 </style>
