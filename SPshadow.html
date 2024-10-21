@@ -53,6 +53,35 @@
     margin-bottom: 20px;
     display: none; /* Initially hidden */
   }
+  .socialsBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%; /* Space from the walls */
+    max-width: calc(5 * 100px + 4 * 20px + 10%); /* Max width when images reach 100px */
+    margin: 0 auto; /* Center the content */
+  }
+
+  .socialsBar a {
+    flex: 0 1 13%;
+    max-width: 100px;
+    margin: 0 2.5%; /* Half of 5% spacing between images */
+  }
+
+  .socialsBar a img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  @media (min-width: 800px) {
+    .socialsBar {
+      padding: 0; /* Remove side padding when content is centered */
+    }
+    .socialsBar a {
+      margin: 0 10px; /* Fixed spacing when images reach max width */
+    }
+  }
   /* Styles for landscape orientation */
   @media (orientation: landscape)  {
     .linker-balk {
@@ -72,15 +101,18 @@
   <div class="socials">
     <h2>SOCIALS</h2>
     <h3>Jongeren Amsterdam</h3>
-    <a href="https://www.instagram.com/spjongerenamsterdam/" target="_blank">Instagram</a><br>
-    <a href="https://twitter.com/SPJongeren020" target="_blank">Twitter</a><br>
-    <a href="https://www.facebook.com/SPJongerenAmsterdam" target="_blank">Facebook</a><br>
-    <a href="https://www.youtube.com/@SPJongerenAmsterdam" target="_blank">Youtube</a><br>
-    <a href="https://www.tiktok.com/@sp_jongeren_amsterdam" target="_blank">Tiktok</a>
+    <div class="socialsBar">
+    <a href="https://www.instagram.com/spjongerenamsterdam/" target="_blank"> <img src="https://cunothe1.github.io/SPJ/Instagram.png" alt="Instagram"></a>
+    <a href="https://twitter.com/SPJongeren020" target="_blank">              <img src="https://cunothe1.github.io/SPJ/Twitter.png"   alt="Twitter"></a>
+    <a href="https://www.facebook.com/SPJongerenAmsterdam" target="_blank">   <img src="https://cunothe1.github.io/SPJ/Facebook.png"  alt="Facebook"></a>
+    <a href="https://www.youtube.com/@SPJongerenAmsterdam" target="_blank">   <img src="https://cunothe1.github.io/SPJ/Youtube.png"   alt="Youtube"></a>
+    <a href="https://www.tiktok.com/@sp_jongeren_amsterdam" target="_blank">  <img src="https://cunothe1.github.io/SPJ/Tiktok.png"    alt="Tiktok"></a>
+    </div><div class="socialsBar">
     <h3>SP Amsterdam</h3>
-    <a href="https://www.instagram.com/sp_amsterdam/">Instagram</a><br>
-    <a href="https://twitter.com/SP_Amsterdam?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank">Twitter</a><br>
-    <a href="https://www.facebook.com/SPAmsterdam/?locale=nl_NL" target="_blank">Facebook</a></td>
+    <a href="https://www.instagram.com/sp_amsterdam/" target="_blank">        <img src="https://cunothe1.github.io/SPJ/Instagram.png" alt="Instagram"></a>
+    <a href="https://twitter.com/SP_Amsterdam" target="_blank">               <img src="https://cunothe1.github.io/SPJ/Twitter.png"   alt="Twitter"></a>
+    <a href="https://www.facebook.com/SPAmsterdam" target="_blank">           <img src="https://cunothe1.github.io/SPJ/Facebook.png"  alt="Facebook"></a>
+    </div>
 </div>
 <div class="lid">
   <h2>DOE MEE</h2>
