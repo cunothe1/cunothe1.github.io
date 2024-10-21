@@ -137,7 +137,7 @@
 <script>
 function toggleContent(id) {
   var SPJcontent = document.getElementById(id);
-  if (SPJcontent.style.display === 'none') {
+  if (SPJcontent.style.display === 'none' || SPJcontent.style.display === '') {
     SPJcontent.style.display = 'block';
   } else {
     SPJcontent.style.display = 'none';
