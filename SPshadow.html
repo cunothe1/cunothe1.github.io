@@ -15,7 +15,7 @@
         font-weight: 1000; /* Hoofdtitel vetgedrukt */
     }
 
-    .member {
+    .member, .info-card {
         border: 1px solid #ccc;
         padding: 10px;
         margin-bottom: 20px;
@@ -24,13 +24,13 @@
         background-color: white;
     }
 
-    .members-container {
+    .members-container, .info-container {
         display: flex;
         flex-wrap: wrap;
         gap: 20px;
     }
 
-    .member h2 {
+    .member h2, .info-card h2 {
         font-family: Impact, Charcoal, sans-serif; /* Impact-lettertype voor ledenkoppen */
         margin-top: 5px; /* Minder witruimte boven de ledenkoppen */
         margin-bottom: 10px; /* Optioneel: pas de marge onder de kop aan voor consistentie */
@@ -87,18 +87,25 @@
 </head>
 <body>
   <h1 id="main-header">Notulen Vergadering</h1>
+  <div id="info-cards" class="info-container"></div>
   <div id="members" class="members-container"></div>
+
+  <!-- EmailJS Script -->
   <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-</script>
-<script type="text/javascript">
-   (function(){
-      emailjs.init({
-        publicKey: "r-xXHfWRQy5XziLeL",
-      });
-   })();
-</script>
+  </script>
+  <script type="text/javascript">
+     (function(){
+        emailjs.init({
+          publicKey: "r-xXHfWRQy5XziLeL",
+        });
+     })();
+  </script>
+
+  <!-- Buttons -->
   <button id="sendData">Verstuur per E-mail</button>
+  <button id="addGuest">Gast Toevoegen</button>
+
   <script>
     // Functie om het huidige weeknummer te verkrijgen
     function getCurrentWeekNumber() {
@@ -114,21 +121,60 @@
       const weekNumber = getCurrentWeekNumber();
       document.getElementById("main-header").textContent = "Notulen Vergadering Week " + weekNumber;
 
+      const infoSections = [
+          {
+            title: "Algemene Informatie",
+            content: "Deze applicatie is ontworpen om notulen van vergaderingen efficiënt vast te leggen. Het stelt gebruikers in staat om notities en taken per lid bij te houden.<br><b>Notities</b><br>Vooraf aan de vergadering is het handig om de taken van vorige week hier in te plakken. Dan kun je per punt tekst schrijven en ziet het er goed uit.<br><b>Nieuwe Taken</b><br>Dingen die belangrijk zijn voor volgende keer. Begin ze met '-' zodat ze goed overzichtelijk zijn in de mail."
+          },
+          {
+            title: "Stopwatch",
+            content: "Om de spreektijd van het lid bij te houden.<br><b>Mensen</b><br>0-2 minuten: Wit.<br>2-3 minuten: Geel.<br>3-5 minuten: Oranje.<br>5+ minuten: Rood.<br><b>Stemmen</b><br>0-1 minuten: Wit.<br>1-2 minuten: Geel.<br>2-3 minuten: Rood.<br>3+ minuten: Grijs."
+          },
+          {
+            title: "Afwezigheid en Gasten",
+            content: "Markeer het lid als afwezig. Dit plaatst de notities automatisch in taken, zodat het op de agenda blijft voor volgende week.<br><br>Klik op <b>'Gast Toevoegen'</b> om een nieuw lid of gast aan de vergadering toe te voegen. Er verschijnt een prompt om de naam van de gast in te voeren. De gast krijgt een eigen sectie met alle functionaliteiten zoals hierboven beschreven."
+          },
+          {
+            title: "Gegevens",
+            content: "De applicatie slaat gegevens lokaal op in de browser tijdens het gebruik. Bij het sluiten of verversen van de pagina <b>gaan gegevens verloren</b>. Zorg ervoor dat je een screenshot maakt en de pagina niet ververst. Verstuur het met de email knop; er komt een pop-up met bevestiging dat het gelukt is.<br><b>Privacy</b><br>Wees bewust van de informatie die je invoert, vooral bij het toevoegen van persoonlijke gegevens van gasten. Dit gaat via de mail en er is geen encryptie."
+          }
+      ];
+
       const members = [
           "Voorzitter extern", "Voorzitter intern", "Propaganda", "Fractie",
           "Scholing", "Actie", "Organisatiesecretaris", "Bondgenoten",
-          "West", "Midden", "Oost", "Gast 1", "Gast 2", "Gast 3"
+          "West", "Midden", "Oost"
       ];
 
       const memberContainer = document.getElementById("members");
+      const infoContainer = document.getElementById("info-cards");
+      let nextMemberIndex = 0; // Om unieke IDs voor leden te behouden
 
-      members.forEach((member, index) => {
+      // Functie om een info kaart toe te voegen
+      function createInfoCard(title, content) {
+        const infoDiv = document.createElement("div");
+        infoDiv.className = "info-card";
+        infoDiv.innerHTML = `
+          <h2>${title}</h2>
+          <p>${content}</p>
+        `;
+        infoContainer.appendChild(infoDiv);
+      }
+
+      // Voeg info kaarten toe
+      infoSections.forEach((section) => {
+        createInfoCard(section.title, section.content);
+      });
+
+      // Functie om een lid toe te voegen
+      function createMemberDiv(memberName) {
+          const index = nextMemberIndex++;
           const memberDiv = document.createElement("div");
           memberDiv.className = "member";
           memberDiv.id = `member-${index}`;
 
           memberDiv.innerHTML = `
-              <h2>${member}</h2>
+              <h2>${memberName}</h2>
               <textarea placeholder="Notities" class="notes"></textarea>
               <textarea placeholder="Nieuwe Taken" class="tasks"></textarea>
               <div class="stopwatch">
@@ -147,12 +193,26 @@
           setupVote(memberDiv);
           setupAbsentButton(memberDiv);
           setupAutoResize(memberDiv); // Voeg auto-resize toe aan tekstvelden
+      }
+
+      // Voeg bestaande leden toe
+      members.forEach((memberName) => {
+          createMemberDiv(memberName);
+      });
+
+      // Event listener voor de "Gast Toevoegen" knop
+      document.getElementById("addGuest").addEventListener("click", () => {
+          const guestName = prompt("Voer de naam van de gast in:") || `Gast ${nextMemberIndex}`;
+          createMemberDiv(guestName);
       });
 
       document.getElementById("sendData").addEventListener("click", sendData);
     });
 
+    // Rest van je functies zoals setupStopwatch, setupVote, etc.
+
     function setupStopwatch(stopwatchDiv, memberId, memberDiv) {
+      // ... je bestaande code ...
       let time = 0;
       let interval = null;
 
@@ -202,6 +262,7 @@
     }
 
     function setupVote(memberDiv) {
+      // ... je bestaande code ...
       const voteButton = memberDiv.querySelector(".vote");
       const voteSectionsContainer = memberDiv.querySelector(".vote-sections");
 
@@ -234,6 +295,7 @@
     }
 
     function setupVoteStopwatch(stopwatchDiv, voteSection) {
+      // ... je bestaande code ...
       let time = 0;
       let interval = null;
 
@@ -288,6 +350,7 @@
     }
 
     function setupAbsentButton(memberDiv) {
+      // ... je bestaande code ...
       const absentButton = memberDiv.querySelector(".absent");
       absentButton.addEventListener("click", () => {
           const notesField = memberDiv.querySelector(".notes");
@@ -312,12 +375,9 @@
       this.style.height = 'auto';
       this.style.height = (this.scrollHeight) + 'px';
     }
-    //=================================================================================
-    //=================================================================================
-    //=================================================================================
-    //=================================================================================
-    //=================================================================================
+
     function sendData() {
+      // ... je bestaande code ...
       const weekNumber = getCurrentWeekNumber();
       const members = Array.from(document.querySelectorAll(".member"));
       
