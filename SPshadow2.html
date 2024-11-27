@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>Notulen Vergadering</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #ed1c23; /* Pagina-achtergrondkleur */
+    }
+
+    #main-header {
+        color: white; /* Hoofdtitel wit maken */
+        font-weight: 1000; /* Hoofdtitel vetgedrukt */
+    }
+
+    .member, .info-card {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 20px;
+        width: 300px; /* Consistente breedte */
+        box-sizing: border-box;
+        background-color: white;
+    }
+
+    .members-container, .info-container, .timers-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .member h2, .info-card h2 {
+        font-family: Impact, Charcoal, sans-serif; /* Impact-lettertype voor ledenkoppen */
+        margin-top: 5px; /* Minder witruimte boven de ledenkoppen */
+        margin-bottom: 10px; /* Optioneel: pas de marge onder de kop aan voor consistentie */
+        font-weight: normal;
+    }
+
+    button {
+        margin: 5px;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+
+    .timer-card {
+        border: 1px solid #aaa;
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 300px; /* Zelfde breedte als andere kaarten */
+        box-sizing: border-box;
+    }
+
+    .timer-card .timer-name {
+        font-weight: bold; /* Vetgedrukte namen */
+        margin: 0;
+    }
+
+    .timer-controls {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+
+    textarea, input[type="text"], input[type="number"] {
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+        overflow: hidden; /* Verbergt de schuifbalk */
+        resize: none; /* Verwijdert de grijze uitbreidingslijnen */
+    }
+
+    .vote-section {
+        border: 1px solid #aaa;
+        padding: 10px;
+        margin-top: 10px;
+        background-color: white;
+    }
+
+    .vote-section h3 {
+        margin-top: 0;
+    }
+
+    .votes-inputs {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .votes-inputs label {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .votes-inputs input[type="number"] {
+        width: 60px;
+    }
+
+    /* Aangepaste styling voor de timers container */
+    .timers-container {
+        /* border: 2px solid #ccc; */
+        padding: 0;
+        margin-bottom: 20px;
+        /* background-color: #f9f9f9; */
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Responsiviteit */
+    @media (max-width: 960px) {
+        .timers-container, .members-container, .info-container {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .timer-card, .member, .info-card {
+            width: 100%;
+            max-width: none;
+        }
+    }
+  </style>
+</head>
+<body>
+  <h1 id="main-header">Notulen Vergadering</h1>
+  <div id="info-cards" class="info-container"></div>
+  
+  <!-- Timers Container -->
+  <div id="timers" class="timers-container"></div>
+  
+  <div id="members" class="members-container"></div>
+
+  <!-- EmailJS Script -->
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  </script>
+  <script type="text/javascript">
+     (function(){
+        emailjs.init({
+          publicKey: "r-xXHfWRQy5XziLeL",
+        });
+     })();
+  </script>
+
+  <!-- Buttons -->
+  <button id="sendData">Verstuur per E-mail</button>
+  <button id="addGuest">Gast Toevoegen</button>
+
+  <script>
+    // Functie om het huidige weeknummer te verkrijgen
+    function getCurrentWeekNumber() {
+        const currentDate = new Date();
+        const oneJan = new Date(currentDate.getFullYear(), 0, 1);
+        const numberOfDays = Math.floor((currentDate - oneJan) / (24 * 60 * 60 * 1000));
+        const weekNumber = Math.ceil((numberOfDays + oneJan.getDay() + 1) / 7);
+        return weekNumber;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      // Update de hoofdtitel met het huidige weeknummer
+      const weekNumber = getCurrentWeekNumber();
+      document.getElementById("main-header").textContent = "Notulen Vergadering Week " + weekNumber;
+
+      const infoSections = [
+          {
+            title: "Algemene Informatie",
+            content: "Deze applicatie is ontworpen om notulen van vergaderingen efficiënt vast te leggen. Het stelt gebruikers in staat om notities en taken per lid bij te houden.<br><b>Notities</b><br>Vooraf aan de vergadering is het handig om de taken van vorige week hier in te plakken. Dan kun je per punt tekst schrijven en ziet het er goed uit.<br><b>Nieuwe Taken</b><br>Dingen die belangrijk zijn voor volgende keer. Begin ze met '-' zodat ze goed overzichtelijk zijn in de mail."
+          },
+          {
+            title: "Stopwatch",
+            content: "Om de spreektijd van het lid bij te houden.<br><b>Mensen</b><br>0-2 minuten: Wit.<br>2-3 minuten: Geel.<br>3-5 minuten: Oranje.<br>5+ minuten: Rood.<br><b>Stemmen</b><br>0-1 minuten: Wit.<br>1-2 minuten: Geel.<br>2-3 minuten: Rood.<br>3+ minuten: Grijs."
+          },
+          {
+            title: "Afwezigheid en Gasten",
+            content: "Markeer het lid als afwezig. Dit plaatst de notities automatisch in taken, zodat het op de agenda blijft voor volgende week.<br><br>Klik op <b>'Gast Toevoegen'</b> om een nieuw lid of gast aan de vergadering toe te voegen. Er verschijnt een prompt om de naam van de gast in te voeren. De gast krijgt een eigen sectie met alle functionaliteiten zoals hierboven beschreven."
+          },
+          {
+            title: "Gegevens",
+            content: "De applicatie slaat gegevens lokaal op in de browser tijdens het gebruik. Bij het sluiten of verversen van de pagina <b>gaan gegevens verloren</b>. Zorg ervoor dat je een screenshot maakt en de pagina niet ververst. Verstuur het met de email knop; er komt een pop-up met bevestiging dat het gelukt is.<br><b>Privacy</b><br>Wees bewust van de informatie die je invoert, vooral bij het toevoegen van persoonlijke gegevens van gasten. Dit gaat via de mail en er is geen encryptie."
+          }
+      ];
+
+      // Mapping van vaste leden naar unieke timernamen
+      const memberTimerNames = {
+          "Algemeen": "",
+          "Voorzitter extern": "Frans Rein",
+          "Voorzitter intern": "Angelo",
+          "Propaganda": "Rada",
+          "Fractie": "Remine",
+          "Scholing": "Kees",
+          "Actie": "Marja",
+          "Organisatiesecretaris": "Ulas",
+          "Bondgenoten": "Chaheed",
+          "West": "Jet",
+          "Midden": "Neeltje",
+          "Oost": "Cuno"
+      };
+
+      const members = [
+          "Algemeen", "Voorzitter extern", "Voorzitter intern", "Propaganda", "Fractie",
+          "Scholing", "Actie", "Organisatiesecretaris", "Bondgenoten",
+          "West", "Midden", "Oost"
+      ];
+
+      const memberContainer = document.getElementById("members");
+      const infoContainer = document.getElementById("info-cards");
+      const timersContainer = document.getElementById("timers");
+      let nextMemberIndex = 0; // Om unieke IDs voor leden te behouden
+
+      // Functie om een info kaart toe te voegen
+      function createInfoCard(title, content) {
+        const infoDiv = document.createElement("div");
+        infoDiv.className = "info-card";
+        infoDiv.innerHTML = `
+          <h2>${title}</h2>
+          <p>${content}</p>
+        `;
+        infoContainer.appendChild(infoDiv);
+      }
+
+      // Voeg info kaarten toe
+      infoSections.forEach((section) => {
+        createInfoCard(section.title, section.content);
+      });
+
+      // Functie om een timerkaart te maken
+      function createTimerCard(memberName, memberId, memberDiv) {
+          const timerCard = document.createElement("div");
+          timerCard.className = "timer-card";
+          timerCard.id = `timer-${memberId}`;
+
+          // Gebruik de mapping als het een vaste lid is, anders gebruik de memberName
+          const timerName = memberTimerNames[memberName] || memberName;
+
+          timerCard.innerHTML = `
+              <p class="timer-name">${timerName}</p>
+              <div class="timer-controls">
+                  <span class="time">0:00</span>
+                  <button class="play-pause">Start</button>
+                  <button class="reset">Reset</button>
+              </div>
+          `;
+
+          timersContainer.appendChild(timerCard);
+
+          setupStopwatch(timerCard.querySelector(".timer-controls"), memberId, memberDiv);
+      }
+
+      // Functie om een lid toe te voegen
+      function createMemberDiv(memberName) {
+          const index = nextMemberIndex++;
+          const memberId = `member-${index}`;
+          const memberDiv = document.createElement("div");
+          memberDiv.className = "member";
+          memberDiv.id = memberId;
+
+          memberDiv.innerHTML = `
+              <h2>${memberName}</h2>
+              <textarea placeholder="Notities" class="notes"></textarea>
+              <textarea placeholder="Nieuwe Taken" class="tasks"></textarea>
+              <button class="absent">Afwezig</button>
+              <button class="vote">Nieuwe Stemming</button>
+              <div class="vote-sections"></div>
+          `;
+
+          memberContainer.appendChild(memberDiv);
+
+          // Creëer de timer in de timers-container
+          createTimerCard(memberName, memberId, memberDiv);
+
+          setupVote(memberDiv);
+          setupAbsentButton(memberDiv);
+          setupAutoResize(memberDiv); // Voeg auto-resize toe aan tekstvelden
+      }
+
+      // Voeg bestaande leden toe
+      members.forEach((memberName) => {
+          createMemberDiv(memberName);
+      });
+
+      // Event listener voor de "Gast Toevoegen" knop
+      document.getElementById("addGuest").addEventListener("click", () => {
+          const guestName = prompt("Voer de naam van de gast in:") || `Gast ${nextMemberIndex + 1}`;
+          createMemberDiv(guestName);
+      });
+
+      document.getElementById("sendData").addEventListener("click", sendData);
+    });
+
+    // Stopwatch setup functie
+    function setupStopwatch(timerControlsDiv, memberId, memberDiv) {
+        let time = 0;
+        let interval = null;
+
+        const timeSpan = timerControlsDiv.querySelector(".time");
+        const playPauseBtn = timerControlsDiv.querySelector(".play-pause");
+        const resetBtn = timerControlsDiv.querySelector(".reset");
+
+        playPauseBtn.addEventListener("click", () => {
+            if (interval) {
+                clearInterval(interval);
+                interval = null;
+                playPauseBtn.textContent = "Start";
+            } else {
+                interval = setInterval(() => {
+                    time++;
+                    timeSpan.textContent = formatTime(time);
+
+                    // Achtergrondkleur aanpassen op basis van tijd
+                    if (time >= 300) { // Meer dan 5 minuten
+                        memberDiv.style.backgroundColor = "#FFAAAA";
+                    } else if (time >= 180) { // Meer dan 3 minuten
+                        memberDiv.style.backgroundColor = "#FAD2AA";
+                    } else if (time >= 120) { // Meer dan 2 minuten
+                        memberDiv.style.backgroundColor = "#FDFFAA";
+                    } else {
+                        memberDiv.style.backgroundColor = "white";
+                    }
+                }, 1000);
+                playPauseBtn.textContent = "Pause";
+            }
+        });
+
+        resetBtn.addEventListener("click", () => {
+            clearInterval(interval);
+            interval = null;
+            time = 0;
+            timeSpan.textContent = "0:00";
+            playPauseBtn.textContent = "Start";
+            memberDiv.style.backgroundColor = "white"; // Achtergrondkleur resetten
+        });
+
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+            return `${mins}:${secs.toString().padStart(2, "0")}`;
+        }
+    }
+
+    // Setup vote functie blijft hetzelfde
+    function setupVote(memberDiv) {
+      const voteButton = memberDiv.querySelector(".vote");
+      const voteSectionsContainer = memberDiv.querySelector(".vote-sections");
+
+      voteButton.addEventListener("click", () => {
+          // Maak een nieuwe stemmingssectie
+          const voteSection = document.createElement("div");
+          voteSection.className = "vote-section";
+
+          voteSection.innerHTML = `
+              <input type="text" placeholder="Stemming over:" class="vote-title">
+              <textarea placeholder="Meegewogen Meningen" class="opinion"></textarea>
+              <div class="votes-inputs">
+                  <label><input type="number" min="0" class="votes-yes" placeholder="👍"></label>
+                  <label><input type="number" min="0" class="votes-withhold" placeholder="~"></label>
+                  <label><input type="number" min="0" class="votes-no" placeholder="👎"></label>
+              </div>
+              <div class="vote-stopwatch">
+                  <span class="time">0:00</span>
+                  <button class="play-pause">Start</button>
+                  <button class="reset">Reset</button>
+              </div>
+          `;
+
+          voteSectionsContainer.appendChild(voteSection);
+
+          const voteStopwatch = voteSection.querySelector(".vote-stopwatch");
+          setupVoteStopwatch(voteStopwatch, voteSection);
+          setupAutoResize(voteSection); // Voeg auto-resize toe aan tekstvelden binnen de stemming
+      });
+    }
+
+    function setupVoteStopwatch(stopwatchDiv, voteSection) {
+      let time = 0;
+      let interval = null;
+
+      const timeSpan = stopwatchDiv.querySelector(".time");
+      const playPauseBtn = stopwatchDiv.querySelector(".play-pause");
+      const resetBtn = stopwatchDiv.querySelector(".reset");
+
+      playPauseBtn.addEventListener("click", () => {
+          if (interval) {
+              clearInterval(interval);
+              interval = null;
+              playPauseBtn.textContent = "Start";
+          } else {
+              interval = setInterval(() => {
+                  time++;
+                  timeSpan.textContent = formatTime(time);
+
+                  // Achtergrondkleur aanpassen op basis van tijd
+                  if (time >= 180) { // Meer dan 3 minuten
+                      voteSection.style.backgroundColor = "#AAAAAA";
+                      voteSection.style.color = "white"; // Tekstkleur aanpassen voor leesbaarheid
+                  } else if (time >= 120) { // Meer dan 2 minuten
+                      voteSection.style.backgroundColor = "#FFAAAA";
+                      voteSection.style.color = "black";
+                  } else if (time >= 60) { // Meer dan 1 minuut
+                      voteSection.style.backgroundColor = "#FDFFAA";
+                      voteSection.style.color = "black";
+                  } else {
+                      voteSection.style.backgroundColor = "white";
+                      voteSection.style.color = "black";
+                  }
+              }, 1000);
+              playPauseBtn.textContent = "Pause";
+          }
+      });
+
+      resetBtn.addEventListener("click", () => {
+          clearInterval(interval);
+          interval = null;
+          time = 0;
+          timeSpan.textContent = "0:00";
+          playPauseBtn.textContent = "Start";
+          voteSection.style.backgroundColor = "white"; // Achtergrondkleur resetten
+          voteSection.style.color = "black";
+      });
+
+      function formatTime(seconds) {
+          const mins = Math.floor(seconds / 60);
+          const secs = seconds % 60;
+          return `${mins}:${secs.toString().padStart(2, "0")}`;
+      }
+    }
+
+    function setupAbsentButton(memberDiv) {
+      const absentButton = memberDiv.querySelector(".absent");
+      absentButton.addEventListener("click", () => {
+          const notesField = memberDiv.querySelector(".notes");
+          const tasksField = memberDiv.querySelector(".tasks");
+          tasksField.value = notesField.value;
+          notesField.value = "afwezig";
+          memberDiv.style.backgroundColor = "#AAAAAA";
+      });
+    }
+
+    // Functie om tekstvelden automatisch te laten vergroten
+    function setupAutoResize(container) {
+      const textareas = container.querySelectorAll("textarea");
+      textareas.forEach(textarea => {
+          textarea.addEventListener('input', autoResizeTextarea);
+          // Initialiseren
+          autoResizeTextarea.call(textarea);
+      });
+    }
+
+    function autoResizeTextarea() {
+      this.style.height = 'auto';
+      this.style.height = (this.scrollHeight) + 'px';
+    }
+
+    function sendData() {
+      const weekNumber = getCurrentWeekNumber();
+      const members = Array.from(document.querySelectorAll(".member"));
+      
+      // Bouw de HTML-inhoud van de e-mail op
+      let emailContent = `<h1>Notulen Vergadering Week ${weekNumber}</h1>`;
+      
+      members.forEach((member) => {
+        const memberName = member.querySelector("h2").textContent;
+        const notes = member.querySelector(".notes").value;
+        const tasks = member.querySelector(".tasks").value;
+        
+        emailContent += `<h3>${memberName}</h3>`;
+        
+        // Notities verwerken en regels die beginnen met "-" dikgedrukt maken
+        if (notes.trim() !== "") {
+          const processedNotes = notes.split('\n').map(line => {
+            if (line.startsWith('-')) {
+              return `<strong>${line}</strong>`;
+            } else {
+              return line;
+            }
+          }).join('<br>');
+          emailContent += `${processedNotes}<br>`;
+        }
+        
+        // "Nieuwe Taken" alleen tonen als deze niet leeg is
+        if (tasks.trim() !== "") {
+          const processedTasks = tasks.replace(/\n/g, '<br>');
+          emailContent += `<p><strong>Nieuwe Taken:</strong><br>${processedTasks}</p>`;
+        }
+        
+        // Verzamel en formatteer de stemmingen
+        const voteSections = Array.from(member.querySelectorAll(".vote-section"));
+        voteSections.forEach((voteSection, index) => {
+          const voteTitle = voteSection.querySelector(".vote-title")?.value || "";
+          const opinion = voteSection.querySelector(".opinion")?.value || "";
+          const votesYes = parseInt(voteSection.querySelector(".votes-yes")?.value || "0", 10);
+          const votesWithhold = parseInt(voteSection.querySelector(".votes-withhold")?.value || "0", 10);
+          const votesNo = parseInt(voteSection.querySelector(".votes-no")?.value || "0", 10);
+          
+          // Bepaal de uitslag van de stemming
+          let decisionStatus = "";
+          if (votesYes >= 6) {
+            decisionStatus = "(aangenomen)";
+          } else if (votesYes > votesNo) {
+            decisionStatus = "(positief)";
+          } else if (votesNo > votesYes) {
+            decisionStatus = "(afgewezen)";
+          }
+
+          // Voeg de stemming toe aan de e-mailinhoud
+          emailContent += `
+            <h4>Stemming ${index + 1}: ${voteTitle} ${decisionStatus}</h4>
+            ${opinion.trim() !== "" ? `<p>${opinion.replace(/\n/g, '<br>')}</p>` : ""}
+            <p><strong>Stemmen:</strong> 👍 ${votesYes}, ~ ${votesWithhold}, 👎 ${votesNo}</p>
+          `;
+        });
+      });
+      
+      // Prepare the email parameters
+      const emailParams = {
+        week_number: weekNumber,
+        email_content: emailContent,
+        to_email: 'cuno_nasserie@hotmail.com' // Vervang dit door het gewenste e-mailadres
+      };
+
+      // Send the email using EmailJS
+      emailjs.send('service_pzhpt0y', 'template_eldpxdv', emailParams)
+        .then((response) => {
+          console.log('SUCCESS!', response.status, response.text);
+          alert('E-mail succesvol verzonden!');
+        }, (error) => {
+          console.error('FAILED...', error);
+          alert('Verzenden van e-mail mislukt. Probeer het opnieuw.');
+        });
+    }
+  </script>
+</body>
+</html>
